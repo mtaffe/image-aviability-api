@@ -3,7 +3,5 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'Testeeee';
+    return view('welcome');
 });
-
-require __DIR__.'/auth.php';
