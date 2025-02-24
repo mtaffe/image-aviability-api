@@ -36,9 +36,7 @@ class ImageController extends Controller
 
         // Criando a imagem desfocada
         $blurImage = $imageManager->read($imageFile->getPathname()) //$originalImage->blur(3)
-            ->blur(3)
-            ->greyscale()
-            ->pixelate(3);
+            ->greyscale();
 
         // Salvando a imagem desfocada
         $blurPath = storage_path('app/public/rex-blur.png');
@@ -47,7 +45,7 @@ class ImageController extends Controller
         // Colocando a parte cortada sobre a imagem desfocada
 
         $finalImage = $imageManager->read($blurPath);
-        $finalImage->place($croppedPath, 'top', 0, 20, 100);
+        $finalImage->place($croppedPath, 'top', 0, 0, 100);
 
         // Salvando a imagem final
         $finalPath = storage_path('app/public/rex3-blur.png');
